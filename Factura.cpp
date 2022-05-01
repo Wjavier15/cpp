@@ -1,28 +1,43 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<conio.h>
-#include<string.h>
- 
-FILE *archivo;
-char VENTASa[50]="Ventas.txt";
- 
-void insertarProductoVenta(char producto[], char producto2[], int precio_VENTA){
-	archivo = fopen(VENTASa,"a");
-	fprintf(archivo,"%s %s %i \n",producto, producto2, precio_VENTA);
-	fclose(archivo);
-	archivo = NULL;
+#include <iostream>
+#include "Factura.h"
+
+using namespace std;
+
+double impuesto;
+double subTotal;
+double totalapagar;
+
+string listaProductos;
+
+
+
+void agregarProducto (string descripcion, int cantidad, double precio)
+{
+
+	
+	
+	listaProductos = listaProductos + descripcion + '\n';
+	subTotal = subTotal + (cantidad * precio );
+	impuesto = impuesto + (precio * 0.15);
+	totalapagar = subTotal + impuesto;	
+	
 }
-void listarProductosStock(){
-	char producto[50], producto2[50];
-	int precio_VENTA;
-	archivo = fopen(VENTASa,"r");
-	if(archivo != NULL){
-		while(!feof(archivo)){
-			fscanf(archivo, "%s %s %i \n",producto,producto2,&precio_VENTA);
-			printf("%s %s %i\n",producto,producto2,precio_VENTA);
-		}
- 
-	}
-	fclose(archivo);
-	archivo = NULL;
+
+
+void imprimirFactura()
+{
+	
+	system("cls");
+	cout << " ************ " << endl;
+	cout << " Factura " << endl;
+	cout << " ************ " << endl;
+	cout << endl;
+	
+	cout << " Productos " << endl;
+	cout << listaProductos;
+	
+	cout << endl;
+	cout << " Total a pagar : " <<  totalapagar << endl;
+	system("pause");
+	
 }
