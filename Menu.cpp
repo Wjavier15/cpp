@@ -1,57 +1,53 @@
 #include <iostream>
-#include <cstdlib>
+#include "MENU.h"
 
 using namespace std;
 
-int main()
-{
-    int opcion;
-    bool repetir = true;
-    
-    do {
-        system("cls");
-        
-        // Texto del menú que se verá cada vez
-        cout << "\n\nMenu de Opciones" << endl;
-        cout << "1. Opcion 1" << endl;
-        cout << "2. Opcion 2" << endl;
-        cout << "3. Opcion 3" << endl;
-        cout << "4. Opcion 4" << endl;
-        cout << "0. SALIR" << endl;
-        
-        cout << "\nIngrese una opcion: ";
-        cin >> opcion;
-        
-        switch (opcion) {
-            case 1:
-                // Lista de instrucciones de la opción 1                
-                
-                system("pause>nul"); // Pausa
-                break;
-                
-            case 2:
-                // Lista de instrucciones de la opción 2                
-                
-                system("pause>nul"); // Pausa
-                break;
-                
-            case 3:
-                // Lista de instrucciones de la opción 3                
-                
-                system("pause>nul"); // Pausa            
-                break;
-                
-            case 4:
-                // Lista de instrucciones de la opción 4                
-                
-                system("pause>nul"); // Pausa                
-                break;
-            
-            case 0:
-            	repetir = false;
-            	break;
-        }        
-    } while (repetir);
-	 
-    return 0;
+extern void producto (int opcion);
+extern imprimirFactura();
+
+void MENU(){
+	
+	
+	int opcion = 0;
+	
+	while (true)
+	{
+		system("cls");
+		cout << " ************* ";
+	    cout << " MENU ";
+        cout << " *************";
+		cout << endl;
+		cout << endl;
+		
+		
+		cout << " 1 - Churros " << endl;
+		cout << " 2 - Pan " << endl;
+		cout << " 3 - Bebidas " << endl;
+		cout << " 4 - Imprimir factura " << endl;
+		cout << " 0 - Salir " << endl;
+		
+	
+	    cout << endl;
+		cout << " Ingrese una opcion: ";
+		cin >> opcion;
+		
+		if (opcion == 0)
+		{
+		
+		   break;
+		
+		}	
+	    if (opcion == 4){
+	    	
+	    	imprimirFactura();
+	    	
+		}else{
+			
+		  producto(opcion);	
+		}
+	  producto(opcion);
+		
+	}
+	
 }
